@@ -12,9 +12,7 @@ public class ClosetSpawner : MonoBehaviour
     {
         float x = Random.Range(min.x, max.x), y = Random.Range(min.x,max.x);
         rand = new Vector2(x,y);
-        closet.transform.rotation = new Quaternion(x,y,0f,0f);
-        Instantiate(closet,rand,closet.transform.rotation);
-
+        Instantiate(closet,rand,Quaternion.identity);
     }
 
 }
