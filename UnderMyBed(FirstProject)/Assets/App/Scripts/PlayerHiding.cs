@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class PlayerHiding : MonoBehaviour
 {
-    [SerializeField] GameObject button;
-    [SerializeField] GameObject player;
+    [SerializeField] private GameObject button;
+    [SerializeField] private GameObject loading;
+    [SerializeField] private Animator loadinganim;
+    [SerializeField] private GameObject player;
+    [SerializeField] private Sprite lastSpriteOfAnim;
+    [SerializeField] private float animCD;
     private bool canHide;
 
 
@@ -16,7 +20,7 @@ public class PlayerHiding : MonoBehaviour
     }
     private void Update()
     {
-        GetInCloset(canHide);
+        GetInCloset();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,18 +28,26 @@ public class PlayerHiding : MonoBehaviour
         {
             canHide = true;
             button.SetActive(true);
-            GetInCloset(canHide);
+            GetInCloset();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         button.SetActive(false);
     }
-    private void GetInCloset(bool canI)
+    private void GetInCloset()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canHide)
+        if (Input.GetKey(KeyCode.E) && canHide)
         {
-            player.SetActive(false);
+            loadinganim.SetBool("ButtonPressed", true);
+            if (loading.GetComponent<SpriteRenderer>().sprite == lastSpriteOfAnim)
+            {
+                Debug.Log("NAKANECTO");
+            }
+        }
+        else
+        {   
+            loadinganim.SetBool("ButtonPressed", false);
         }
     }
 
