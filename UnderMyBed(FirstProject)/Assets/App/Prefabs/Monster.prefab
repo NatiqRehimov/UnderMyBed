@@ -117,7 +117,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -5530439348810607683, guid: d23dacf9ff471dc499fe48f70d592ecc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -177,12 +177,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e461295c5e6b0449d18fe78798013c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Roar: {fileID: 9221681487359935142}
-  player: {fileID: 3739668427116116381, guid: c73a9705294b3324aa49035d953a7edf, type: 3}
+  roar: {fileID: 8300000, guid: 2375daaf737bdc14c9ddabbfb069f6de, type: 3}
+  source: {fileID: 9221681487359935142}
+  player: {fileID: 1116733035746415603, guid: 7f6c188817608484ab00652902391ab8, type: 3}
   monsterRb: {fileID: 916887257986122969}
-  moveSpeed: 5
-  max: {x: 2, y: 2}
-  min: {x: -2, y: -2}
+  moveSpeed: 4.5
+  max: {x: 3, y: 3}
+  min: {x: -3, y: -3}
 --- !u!50 &916887257986122969
 Rigidbody2D:
   serializedVersion: 4
@@ -255,14 +256,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.5694361, y: 4.551342}
-      - {x: -8.65209, y: 4.563469}
+    - - {x: 0.5694361, y: 6.2223063}
+      - {x: -8.559259, y: 5.1204567}
       - {x: -11.018467, y: -0.39996985}
-      - {x: -8.660191, y: -5.4637012}
-      - {x: 0.6368823, y: -5.866647}
-      - {x: 9.296815, y: -6.022101}
+      - {x: -8.660191, y: -6.2063513}
+      - {x: 0.4512198, y: -7.7232733}
+      - {x: 9.482477, y: -6.6719203}
       - {x: 11.971545, y: -0.66787004}
-      - {x: 9.361793, y: 4.2685127}
+      - {x: 9.361793, y: 4.454175}
 --- !u!82 &9221681487359935142
 AudioSource:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4cd43dae49bfdd94eb571e324ce100a9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

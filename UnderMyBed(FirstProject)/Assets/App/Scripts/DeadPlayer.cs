@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
 
 public class DeadPlayer : MonoBehaviour
 {
-    [SerializeField] private Animator model;
-    [SerializeField] private GameObject monster;
-    [SerializeField] private Sprite lastSpriteOfAnim;
-    private GameObject screamer;
+    [SerializeField] private Animator modelOfMonster;
+    [SerializeField] private GameObject modelOfPlayer;
+    [SerializeField] private Sprite lastSpriteOfChompAnim;
     [SerializeField]private AudioSource bigChomp;
+    [SerializeField] private GameObject tryAgainText;
+    private GameObject screamer;
 
     private void Awake()
     {
@@ -18,21 +18,55 @@ public class DeadPlayer : MonoBehaviour
     }
     private void Start()
     {
+        tryAgainText.SetActive(false);
         screamer.SetActive(false);
+    }
+    private void Update()
+    {
+        TryAgain();
+        WhosUnder();
+    }
+    private void WhosUnder()
+    {
+        if(modelOfPlayer.transform.position.y > modelOfMonster.transform.position.y)
+        {
+            modelOfPlayer.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            modelOfMonster.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        }
+        else 
+        {
+            modelOfPlayer.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            modelOfMonster.GetComponent<SpriteRenderer>().sortingOrder = 1;
+
+        }
+    }
+    private void TryAgain()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SceneManager.LoadScene("Main");
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Monster")
+        if (other.tag == "Monster" && modelOfPlayer.activeSelf)
         {
-            model.SetBool("Attack",true);
+            modelOfMonster.SetBool("Attack",true);
             bigChomp.Play();
-            if (model.GetComponent<SpriteRenderer>().sprite == lastSpriteOfAnim)
-            {
-                Debug.Log("FUCK");
-                model.SetBool("Attack",false);
-                screamer.SetActive(true);
-                SceneManager.LoadScene("Main");
-            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        LoadSceneAgain();
+    }
+
+    private void LoadSceneAgain()
+    {
+        if (modelOfMonster.GetComponent<SpriteRenderer>().sprite == lastSpriteOfChompAnim)
+        {
+            modelOfMonster.SetBool("Attack", false);
+            screamer.SetActive(true);
+            tryAgainText.SetActive(true);
         }
     }
 }

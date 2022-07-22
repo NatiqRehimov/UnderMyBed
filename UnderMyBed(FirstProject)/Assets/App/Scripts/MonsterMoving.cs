@@ -6,8 +6,9 @@ using UnityEngine.Audio;
 
 public class MonsterMoving : MonoBehaviour
 {
-    [SerializeField] private AudioSource Roar;
-    [SerializeField] private Transform player;
+    [SerializeField] private AudioClip roar;
+    [SerializeField] private AudioSource source;
+    [SerializeField] private GameObject player;
     [SerializeField] private Rigidbody2D monsterRb;
     [SerializeField] private float moveSpeed;
     private bool faceLeft = true;
@@ -18,7 +19,7 @@ public class MonsterMoving : MonoBehaviour
 
     void Update()
     {
-        if (see) { Follow(); }
+        if (see && player.activeSelf) { Follow(); }
         else 
         {
             if (!isWall) { ChillyWalk(); }
@@ -28,7 +29,7 @@ public class MonsterMoving : MonoBehaviour
 
     private void Follow()
     {
-        Vector3 direction = player.position - transform.position;
+        Vector3 direction = player.transform.position - transform.position;
         direction.Normalize();
         moveVector = direction;
         monsterRb.MovePosition((Vector2)transform.position + (moveVector * moveSpeed*0.05f));
@@ -38,12 +39,12 @@ public class MonsterMoving : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player") { see = true; }
+        if (other.tag == "Player" && player.activeSelf) { see = true; source.PlayOneShot(roar); }
         if (other.tag == "Wall") { isWall = true; }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player") { see = false; }
+        if (other.tag == "Player") { see = false; source.Stop(); }
         if (other.tag == "Wall") { isWall = false; }
     }
 

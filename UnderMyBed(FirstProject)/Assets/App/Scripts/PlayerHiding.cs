@@ -23,11 +23,14 @@ public class PlayerHiding : MonoBehaviour
             button.SetActive(true);
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        button.SetActive(false);
-        canHide = false;
-        canShow = false;
+        if (other.tag == "Player")
+        {
+            button.SetActive(false);
+            canHide = false;
+            canShow = false;
+        }
     }
    
 
