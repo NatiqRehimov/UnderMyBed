@@ -7,11 +7,15 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Animator model;
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float speed;
+    public float speed = 5f;
     private bool shift = false;
     private bool faceRight = true;
     private Vector2 moveVector;
 
+    void Start()
+    {
+        model.gameObject.SetActive(true);
+    }
     void Update()
     {
         Walk();
@@ -29,9 +33,12 @@ public class PlayerController : MonoBehaviour
         else if (moveVector.x > 0 && !faceRight) { Flip(); }
         Run();
         //animation
-        model.SetFloat("Horizontal", moveVector.x);
-        model.SetFloat("Vertical", moveVector.y);
-        model.SetBool("Shift", shift);
+        if (model.gameObject.activeSelf)
+        {
+            model.SetFloat("Horizontal", moveVector.x);
+            model.SetFloat("Vertical", moveVector.y);
+            model.SetBool("Shift", shift);
+        }
     }
     private void Run()
     {
@@ -41,7 +48,7 @@ public class PlayerController : MonoBehaviour
             model.SetBool("Shift", shift);
             speed = 10f;
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             shift = false;
             model.SetBool("Shift", shift);
