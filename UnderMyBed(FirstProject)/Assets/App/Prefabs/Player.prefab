@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1410098639289480923}
   - component: {fileID: 8776866640196751841}
   - component: {fileID: 3041730899254362421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a7f7f5757b1844fbea088f64313253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 0}
-  player: {fileID: 8403652674417783277}
+  modelOfMonster: {fileID: 0}
+  modelOfPlayer: {fileID: 0}
   lastSpriteOfChompAnim: {fileID: 1347519800307295561, guid: d23dacf9ff471dc499fe48f70d592ecc, type: 3}
   bigChomp: {fileID: 0}
   tryAgainText: {fileID: 0}
@@ -357,11 +357,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f6c188817608484ab00652902391ab8, type: 3}
---- !u!1 &8403652674417783277 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1116733035746415603, guid: 7f6c188817608484ab00652902391ab8, type: 3}
-  m_PrefabInstance: {fileID: 8926322833260618270}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8403652674417783276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1116733035746415602, guid: 7f6c188817608484ab00652902391ab8, type: 3}
