@@ -182,8 +182,8 @@ MonoBehaviour:
   player: {fileID: 1116733035746415603, guid: 7f6c188817608484ab00652902391ab8, type: 3}
   monsterRb: {fileID: 916887257986122969}
   moveSpeed: 4.5
-  max: {x: 3, y: 3}
-  min: {x: -3, y: -3}
+  max: {x: 4, y: 4}
+  min: {x: -4, y: -4}
 --- !u!50 &916887257986122969
 Rigidbody2D:
   serializedVersion: 4
