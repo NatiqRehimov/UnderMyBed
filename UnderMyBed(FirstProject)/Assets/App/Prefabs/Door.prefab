@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6134807274803845206}
   - component: {fileID: 553046797379035196}
   - component: {fileID: 5121393878109974745}
+  - component: {fileID: 5085034178397512844}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -158,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7576205787943468351, guid: e8e312221cf635b458eefdb788986b7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -338,6 +339,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.8, y: 0.61}
   m_EdgeRadius: 0
+--- !u!114 &5085034178397512844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5806303706297056882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0ca0c42cd30564ba90aaa5b6ba3332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects: {fileID: 5805381391506457296}
+  player: {fileID: 0}
+  monster: {fileID: 0}
 --- !u!1001 &7732952690933067051
 PrefabInstance:
   m_ObjectHideFlags: 0

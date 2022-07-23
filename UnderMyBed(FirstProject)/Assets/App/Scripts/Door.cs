@@ -52,12 +52,12 @@ public class Door : MonoBehaviour
 
     private void InteractionButton()
     {
-        if (Input.GetKeyDown(KeyCode.E) && nearDoor && countOfActive == 5)
+        if (Input.GetKeyDown(KeyCode.E) && nearDoor && countOfActive == 7)
         {
             loadinganim.SetBool("ButtonPressed", true);
             InTheEnd();
         }
-        else if (Input.GetKeyUp(KeyCode.E) && nearDoor && countOfActive == 5)
+        else if (Input.GetKeyUp(KeyCode.E) && nearDoor && countOfActive == 7)
         {
             loadinganim.SetBool("ButtonPressed", false);
             InTheEnd();
